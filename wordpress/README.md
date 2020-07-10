@@ -13,7 +13,7 @@ The template relies on selecting 3 subnets as 3 Elastic File System mount target
 Installs the latest version of wordpress and php version 7.3.
 
 ## Security
-The template relies on having a SSL certificate within AWS Certification Manager. The certificate should be created in the region you wish to run the load balancer and must reference the WordPress domain name.
+The template relies on having a SSL certificate within AWS Certificate Manager. The certificate should be created in the region you wish to run the load balancer and must reference the WordPress domain name.
 The certificate ARN is entered as a parameter during stack launch.
 
 ## Auto Scaling
