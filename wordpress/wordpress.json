@@ -1,0 +1,1428 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Katie Template",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "206425bd-7017-4a67-ac0e-fcc8e8fbbd39": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 170,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "d7e5f8a1-660a-4254-9651-cb34fa49c9c0"
+                ]
+            },
+            "531ce3f0-749f-4f5b-a244-1cc8b9b3be8a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "6e339aab-87e5-40d7-9736-c26ef8e42906": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 380,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "18d48ddf-aa6d-4066-b383-53055efaebcd": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 380,
+                    "y": 50
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "6ce4221f-bf4f-4841-9a3a-b1b71c1c0a09"
+                ]
+            },
+            "d7e5f8a1-660a-4254-9651-cb34fa49c9c0": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 170,
+                    "y": 50
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "93dd3a36-c3fd-4cd7-846c-bff35164b4e9": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 50
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "18d48ddf-aa6d-4066-b383-53055efaebcd"
+                ]
+            },
+            "ac4c8fa1-7413-40cb-bbcf-bca93a337d3d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 350
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "2f1b974c-cc9c-40b7-95bf-d25572b3a2b7"
+                ]
+            },
+            "2f1b974c-cc9c-40b7-95bf-d25572b3a2b7": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 430
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "d29a64e7-0ab0-465f-8115-175490f62052": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 510,
+                    "y": 520
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "6ce4221f-bf4f-4841-9a3a-b1b71c1c0a09": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 380,
+                    "y": 150
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a806bcec-e42e-4ba7-b65e-15f80bf05440": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 520,
+                    "y": 50
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0b07134b-6d70-42b4-9421-05e7a5ed3c62": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 740,
+                    "y": 270
+                },
+                "z": 1,
+                "parent": "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                "embeds": [],
+                "isassociatedwith": [
+                    "bce9228c-6ef6-4347-9fd7-56842c07acf1"
+                ],
+                "iscontainedinside": [
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67",
+                    "5e2c8dd3-745a-4867-ae38-bdb40cf10e67"
+                ]
+            },
+            "bce9228c-6ef6-4347-9fd7-56842c07acf1": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 620,
+                    "y": 270
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "5e2c8dd3-745a-4867-ae38-bdb40cf10e67": {
+                "size": {
+                    "width": 140,
+                    "height": 140
+                },
+                "position": {
+                    "x": 710,
+                    "y": 230
+                },
+                "z": 0,
+                "embeds": [
+                    "0b07134b-6d70-42b4-9421-05e7a5ed3c62"
+                ]
+            },
+            "24f2be3e-d62a-4b7f-a83a-87e6c2baa30b": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 510,
+                    "y": 340
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "46292e9e-9787-4734-b957-b0cd9d5fe965": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 510,
+                    "y": 430
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "24f2be3e-d62a-4b7f-a83a-87e6c2baa30b",
+                    "d29a64e7-0ab0-465f-8115-175490f62052"
+                ]
+            },
+            "076f42a8-ee72-495e-9f28-ce0efe9fd855": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 420,
+                    "y": 430
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "24f2be3e-d62a-4b7f-a83a-87e6c2baa30b",
+                    "d29a64e7-0ab0-465f-8115-175490f62052"
+                ]
+            },
+            "0e5d37a9-0f76-40c4-85df-aeb64390504c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 610,
+                    "y": 430
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "24f2be3e-d62a-4b7f-a83a-87e6c2baa30b",
+                    "d29a64e7-0ab0-465f-8115-175490f62052"
+                ]
+            },
+            "6c4f3a29-2d2b-424b-b4fa-f280110bb1ac": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": -30
+                },
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "18d48ddf-aa6d-4066-b383-53055efaebcd"
+                ]
+            }
+        }
+    },
+    "Resources": {
+        "PublicAlbSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Security group for ALB",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 443,
+                        "ToPort": 443,
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 80,
+                        "ToPort": 80,
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "VpcId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6ce4221f-bf4f-4841-9a3a-b1b71c1c0a09"
+                }
+            }
+        },
+        "WebServerSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Enable SSH access and HTTP from the load balancer only",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 22,
+                        "ToPort": 22,
+                        "CidrIp": {
+                            "Ref": "SSHLocation"
+                        }
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 80,
+                        "ToPort": 80,
+                        "SourceSecurityGroupId": {
+                            "Ref": "PublicAlbSecurityGroup"
+                        }
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 443,
+                        "ToPort": 443,
+                        "SourceSecurityGroupId": {
+                            "Ref": "PublicAlbSecurityGroup"
+                        }
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "VpcId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6e339aab-87e5-40d7-9736-c26ef8e42906"
+                }
+            }
+        },
+        "EfsSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Security group for EFS mount targets",
+                "VpcId": {
+                    "Ref": "VpcId"
+                },
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 2049,
+                        "ToPort": 2049,
+                        "SourceSecurityGroupId": {
+                            "Ref": "WebServerSecurityGroup"
+                        }
+                    },
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 22,
+                        "ToPort": 22,
+                        "CidrIp": {
+                            "Ref": "SSHLocation"
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "24f2be3e-d62a-4b7f-a83a-87e6c2baa30b"
+                }
+            }
+        },
+        "DatabaseSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Security group for Amazon RDS",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 3306,
+                        "ToPort": 3306,
+                        "SourceSecurityGroupId": {
+                            "Ref": "WebServerSecurityGroup"
+                        }
+                    }
+                ],
+                "VpcId": {
+                    "Ref": "VpcId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "bce9228c-6ef6-4347-9fd7-56842c07acf1"
+                }
+            }
+        },
+        "ElasticFileSystemMountTarget1": {
+            "Type": "AWS::EFS::MountTarget",
+            "Properties": {
+                "FileSystemId": {
+                    "Ref": "ElasticFileSystem"
+                },
+                "SecurityGroups": [
+                    {
+                        "Ref": "EfsSecurityGroup"
+                    }
+                ],
+                "SubnetId": {
+                    "Fn::Select": [
+                        1,
+                        {
+                            "Ref": "Subnets"
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "46292e9e-9787-4734-b957-b0cd9d5fe965"
+                }
+            }
+        },
+        "ElasticFileSystemMountTarget0": {
+            "Type": "AWS::EFS::MountTarget",
+            "Properties": {
+                "FileSystemId": {
+                    "Ref": "ElasticFileSystem"
+                },
+                "SecurityGroups": [
+                    {
+                        "Ref": "EfsSecurityGroup"
+                    }
+                ],
+                "SubnetId": {
+                    "Fn::Select": [
+                        0,
+                        {
+                            "Ref": "Subnets"
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "076f42a8-ee72-495e-9f28-ce0efe9fd855"
+                }
+            }
+        },
+        "ElasticFileSystemMountTarget2": {
+            "Type": "AWS::EFS::MountTarget",
+            "Properties": {
+                "FileSystemId": {
+                    "Ref": "ElasticFileSystem"
+                },
+                "SecurityGroups": [
+                    {
+                        "Ref": "EfsSecurityGroup"
+                    }
+                ],
+                "SubnetId": {
+                    "Fn::Select": [
+                        2,
+                        {
+                            "Ref": "Subnets"
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0e5d37a9-0f76-40c4-85df-aeb64390504c"
+                }
+            }
+        },
+        "ElasticFileSystem": {
+            "Type": "AWS::EFS::FileSystem",
+            "Properties": {
+                "Encrypted": true,
+                "PerformanceMode": "generalPurpose",
+                "ThroughputMode": "bursting"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d29a64e7-0ab0-465f-8115-175490f62052"
+                }
+            }
+        },
+        "LoadBalancer": {
+            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+            "Properties": {
+                "Scheme": "internet-facing",
+                "Subnets": {
+                    "Ref": "Subnets"
+                },
+                "LoadBalancerAttributes": [
+                    {
+                        "Key": "idle_timeout.timeout_seconds",
+                        "Value": 60
+                    }
+                ],
+                "SecurityGroups": [
+                    {
+                        "Ref": "PublicAlbSecurityGroup"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "18d48ddf-aa6d-4066-b383-53055efaebcd"
+                }
+            }
+        },
+        "ELBTargetGroup": {
+            "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "Properties": {
+                "HealthCheckIntervalSeconds": 30,
+                "HealthCheckPath": "/wp-login.php",
+                "HealthCheckTimeoutSeconds": 5,
+                "HealthyThresholdCount": 3,
+                "Port": 80,
+                "Protocol": "HTTP",
+                "UnhealthyThresholdCount": 5,
+                "VpcId": {
+                    "Ref": "VpcId"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "d7e5f8a1-660a-4254-9651-cb34fa49c9c0"
+                }
+            }
+        },
+        "WebInstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "WebInstanceRole"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ac4c8fa1-7413-40cb-bbcf-bca93a337d3d"
+                }
+            }
+        },
+        "WebInstanceRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "logs",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents",
+                                        "logs:DescribeLogStreams"
+                                    ],
+                                    "Resource": [
+                                        "arn:aws:logs:*:*:*"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2f1b974c-cc9c-40b7-95bf-d25572b3a2b7"
+                }
+            }
+        },
+        "DatabaseInstance": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "BackupRetentionPeriod": 30,
+                "AllowMajorVersionUpgrade": false,
+                "AutoMinorVersionUpgrade": true,
+                "DBName": {
+                    "Ref": "DatabaseName"
+                },
+                "Engine": "MySQL",
+                "MultiAZ": {
+                    "Ref": "MultiAZDatabase"
+                },
+                "MasterUsername": {
+                    "Ref": "DatabaseMasterUsername"
+                },
+                "MasterUserPassword": {
+                    "Ref": "DatabaseMasterPassword"
+                },
+                "DBInstanceClass": {
+                    "Ref": "DatabaseInstanceType"
+                },
+                "AllocatedStorage": {
+                    "Ref": "DBAllocatedStorage"
+                },
+                "DBSubnetGroupName": {
+                    "Ref": "DataSubnetGroup"
+                },
+                "Port": 3306,
+                "StorageEncrypted": true,
+                "VPCSecurityGroups": [
+                    {
+                        "Ref": "DatabaseSecurityGroup"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0b07134b-6d70-42b4-9421-05e7a5ed3c62"
+                }
+            }
+        },
+        "DataSubnetGroup": {
+            "Type": "AWS::RDS::DBSubnetGroup",
+            "Properties": {
+                "DBSubnetGroupDescription": "RDS Database Subnet Group for WordPress",
+                "SubnetIds": {
+                    "Ref": "Subnets"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5e2c8dd3-745a-4867-ae38-bdb40cf10e67"
+                }
+            }
+        },
+        "WebServerGroup": {
+            "Type": "AWS::AutoScaling::AutoScalingGroup",
+            "Properties": {
+                "Cooldown": 60,
+                "HealthCheckGracePeriod": 1200,
+                "HealthCheckType": "ELB",
+                "LaunchTemplate": {
+                    "LaunchTemplateId": {
+                        "Ref": "LaunchTemplate"
+                    },
+                    "Version": {
+                        "Fn::GetAtt": [
+                            "LaunchTemplate",
+                            "LatestVersionNumber"
+                        ]
+                    }
+                },
+                "VPCZoneIdentifier": {
+                    "Ref": "Subnets"
+                },
+                "MinSize": "1",
+                "MaxSize": "3",
+                "TargetGroupARNs": [
+                    {
+                        "Ref": "ELBTargetGroup"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "206425bd-7017-4a67-ac0e-fcc8e8fbbd39"
+                }
+            },
+            "UpdatePolicy": {},
+            "CreationPolicy": {
+                "ResourceSignal": {
+                    "Timeout": "PT15M",
+                    "Count": "1"
+                }
+            }
+        },
+        "LaunchTemplate": {
+            "Type": "AWS::EC2::LaunchTemplate",
+            "Properties": {
+                "LaunchTemplateData": {
+                    "IamInstanceProfile": {
+                        "Arn": {
+                            "Fn::GetAtt": [
+                                "WebInstanceProfile",
+                                "Arn"
+                            ]
+                        }
+                    },
+                    "KeyName": {
+                        "Ref": "KeyName"
+                    },
+                    "ImageId": {
+                        "Fn::FindInMap": [
+                            "AWSRegionArch2AMI",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            {
+                                "Fn::FindInMap": [
+                                    "AWSInstanceType2Arch",
+                                    {
+                                        "Ref": "InstanceType"
+                                    },
+                                    "Arch"
+                                ]
+                            }
+                        ]
+                    },
+                    "SecurityGroupIds": [
+                        {
+                            "Ref": "WebServerSecurityGroup"
+                        }
+                    ],
+                    "InstanceType": {
+                        "Ref": "InstanceType"
+                    },
+                    "UserData": {
+                        "Fn::Base64": {
+                            "Fn::Sub": "#!/bin/bash -xe\nyum update -y\nmkdir -p /var/www/wordpress\nmount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 ${ElasticFileSystem}.efs.${AWS::Region}.amazonaws.com:/ /var/www/wordpress\n/opt/aws/bin/cfn-init --configsets deploy_webserver --verbose --stack ${AWS::StackName} --resource LaunchTemplate --region ${AWS::Region}\n/opt/aws/bin/cfn-signal --exit-code $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}\n"
+                        }
+                    }
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Init": {
+                    "configSets": {
+                        "deploy_webserver": [
+                            "enable_packages",
+                            "install_webserver",
+                            "build_opcache",
+                            "build_wordpress",
+                            "install_wordpress",
+                            "install_opcache",
+                            "start_webserver"
+                        ]
+                    },
+                    "enable_packages": {
+                        "commands": {
+                            "enable_php": {
+                                "command": "amazon-linux-extras enable php7.3"
+                            }
+                        }
+                    },
+                    "install_webserver": {
+                        "packages": {
+                            "yum": {
+                                "awslogs": [],
+                                "httpd": [],
+                                "mariadb": [],
+                                "php": [],
+                                "php-devel": [],
+                                "php-pear": [],
+                                "php-mysqlnd": []
+                            }
+                        },
+                        "files": {
+                            "/tmp/create_site_conf.sh": {
+                                "content": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "#!/bin/bash -xe\n",
+                                            "if [ ! -f /etc/httpd/conf.d/wp.conf ]; then\n",
+                                            "   touch /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo 'ServerName 127.0.0.1:80' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo 'DocumentRoot /var/www/wordpress/wp' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo '<Directory /var/www/wordpress/wp>' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo '  Options Indexes FollowSymLinks' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo '  AllowOverride All' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo '  Require all granted' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   echo '</Directory>' >> /etc/httpd/conf.d/wp.conf\n",
+                                            "   sed -i 's/h2c//' /etc/httpd/conf/httpd.conf\n",
+                                            "   sed -i '/http\\/1.1/a Header unset Upgrade' /etc/httpd/conf/httpd.conf\n",
+                                            "fi\n"
+                                        ]
+                                    ]
+                                },
+                                "mode": 320,
+                                "owner": "root",
+                                "group": "root"
+                            }
+                        },
+                        "commands": {
+                            "create_site_conf": {
+                                "command": "./create_site_conf.sh",
+                                "cwd": "/tmp",
+                                "ignoreErrors": false
+                            }
+                        }
+                    },
+                    "build_opcache": {
+                        "packages": {
+                            "yum": {
+                                "php-opcache": []
+                            }
+                        },
+                        "files": {
+                            "/tmp/install_opcache.sh": {
+                                "content": "#!/bin/bash -xe\n # create hidden opcache directory locally & change owner to apache\nif [ ! -d /var/www/.opcache ]; then\n mkdir -p /var/www/.opcache\n fi\n # enable opcache in /etc/php.d/10-opcache.ini\n sed -i 's/;opcache.file_cache=.*/opcache.file_cache=\\/var\\/www\\/.opcache/' /etc/php.d/10-opcache.ini\n sed -i 's/opcache.memory_consumption=.*/opcache.memory_consumption=512/' /etc/php.d/10-opcache.ini\n # download opcache-instance.php to verify opcache status\n if [ ! -f /var/www/wordpress/wp/opcache-instanceid.php ]; then\n wget -P /var/www/wordpress/wp/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/opcache-instanceid.php\n fi\n",
+                                "mode": 320,
+                                "owner": "root",
+                                "group": "root"
+                            }
+                        }
+                    },
+                    "build_wordpress": {
+                        "files": {
+                            "/tmp/install_wordpress.sh": {
+                                "content": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "#!/bin/bash -xe\n",
+                                            "\n",
+                                            "# install wp-cli\n",
+                                            "if [ ! -f /bin/wp/wp-cli.phar ]; then\n",
+                                            "   curl -o /bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar\n",
+                                            "   chmod +x /bin/wp\n",
+                                            "fi\n",
+                                            "\n",
+                                            "# make site directory\n",
+                                            "if [ ! -d /var/www/wordpress/wp ]; then\n",
+                                            "   mkdir -p /var/www/wordpress/wp\n",
+                                            "\n",
+                                            "   cd /var/www/wordpress/wp\n",
+                                            "   # install wordpress if not installed\n",
+                                            "   # use public alb host name if wp domain name was empty\n",
+                                            "   if ! $(wp core is-installed --allow-root); then\n",
+                                            "       wp core download --version='",
+                                            {
+                                                "Ref": "WPVersion"
+                                            },
+                                            "' --locale='en_GB' --allow-root\n",
+                                            "       wp core config --dbname='",
+                                            {
+                                                "Ref": "DatabaseName"
+                                            },
+                                            "' --dbuser='",
+                                            {
+                                                "Ref": "DatabaseMasterUsername"
+                                            },
+                                            "' --dbpass='",
+                                            {
+                                                "Ref": "DatabaseMasterPassword"
+                                            },
+                                            "' --dbhost='",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "DatabaseInstance",
+                                                    "Endpoint.Address"
+                                                ]
+                                            },
+                                            "' --dbprefix=wp_ --allow-root\n",
+                                            "       wp core install --url=",
+                                            {
+                                                "Fn::Join": [
+                                                    "",
+                                                    [
+                                                        "'https://",
+                                                        {
+                                                            "Ref": "WPDomainName"
+                                                        },
+                                                        "'"
+                                                    ]
+                                                ]
+                                            },
+                                            " --title='",
+                                            {
+                                                "Ref": "WPTitle"
+                                            },
+                                            "' --admin_user='",
+                                            {
+                                                "Ref": "WPAdminUsername"
+                                            },
+                                            "' --admin_password='",
+                                            {
+                                                "Ref": "WPAdminPassword"
+                                            },
+                                            "' --admin_email='",
+                                            {
+                                                "Ref": "WPAdminEmail"
+                                            },
+                                            "' --skip-email --allow-root\n",
+                                            "       wp plugin install w3-total-cache --allow-root\n",
+                                            "       sed -i \"/$table_prefix = 'wp_';/ a \\define('WP_HOME', 'http://' . \\$_SERVER['HTTP_HOST']); \" /var/www/wordpress/wp/wp-config.php\n",
+                                            "       sed -i \"/$table_prefix = 'wp_';/ a \\define('WP_SITEURL', 'http://' . \\$_SERVER['HTTP_HOST']); \" /var/www/wordpress/wp/wp-config.php\n",
+                                            "       # enable HTTPS in wp-config.php if ACM Public SSL Certificate parameter was not empty\n",
+                                            {
+                                                "Fn::Join": [
+                                                    "",
+                                                    [
+                                                        "       sed -i \"/$table_prefix = 'wp_';/ a \\$_SERVER['HTTPS'] = 'on';\" /var/www/wordpress/wp/wp-config.php\n"
+                                                    ]
+                                                ]
+                                            },
+                                            "\n",
+                                            "       # set permissions of wordpress site directories\n",
+                                            "       chown -R apache:apache /var/www/wordpress/wp\n",
+                                            "       chmod u+wrx /var/www/wordpress/wp/wp-content/*\n",
+                                            "       if [ ! -f /var/www/wordpress/wp/opcache-instanceid.php ]; then\n",
+                                            "           wget -P /var/www/wordpress/wp/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/opcache-instanceid.php\n",
+                                            "       fi\n",
+                                            "   fi\n",
+                                            "   RESULT=$?\n",
+                                            "   if [ $RESULT -eq 0 ]; then\n",
+                                            "       touch /var/www/wordpress/wp/wordpress.initialized\n",
+                                            "         else\n",
+                                            "       touch /var/www/wordpress/wp/wordpress.failed\n",
+                                            "   fi\n",
+                                            "fi\n"
+                                        ]
+                                    ]
+                                },
+                                "mode": 320,
+                                "owner": "root",
+                                "group": "root"
+                            }
+                        }
+                    },
+                    "install_wordpress": {
+                        "commands": {
+                            "install_wordpress": {
+                                "command": "./install_wordpress.sh",
+                                "cwd": "/tmp",
+                                "ignoreErrors": false
+                            }
+                        }
+                    },
+                    "install_opcache": {
+                        "commands": {
+                            "install_opcache": {
+                                "command": "./install_opcache.sh",
+                                "cwd": "/tmp",
+                                "ignoreErrors": false
+                            }
+                        }
+                    },
+                    "start_webserver": {
+                        "services": {
+                            "sysvinit": {
+                                "httpd": {
+                                    "enabled": true,
+                                    "ensureRunning": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "AWS::CloudFormation::Designer": {
+                    "id": "531ce3f0-749f-4f5b-a244-1cc8b9b3be8a"
+                }
+            }
+        },
+        "RecordSet": {
+            "Type": "AWS::Route53::RecordSetGroup",
+            "Properties": {
+                "HostedZoneName": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            {
+                                "Ref": "WPDomainName"
+                            },
+                            "."
+                        ]
+                    ]
+                },
+                "RecordSets": [
+                    {
+                        "Name": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "www.",
+                                    {
+                                        "Ref": "WPDomainName"
+                                    },
+                                    "."
+                                ]
+                            ]
+                        },
+                        "Type": "A",
+                        "AliasTarget": {
+                            "DNSName": {
+                                "Fn::GetAtt": [
+                                    "LoadBalancer",
+                                    "DNSName"
+                                ]
+                            },
+                            "EvaluateTargetHealth": true,
+                            "HostedZoneId": {
+                                "Fn::GetAtt": [
+                                    "LoadBalancer",
+                                    "CanonicalHostedZoneID"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "Name": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "",
+                                    {
+                                        "Ref": "WPDomainName"
+                                    },
+                                    "."
+                                ]
+                            ]
+                        },
+                        "Type": "A",
+                        "AliasTarget": {
+                            "DNSName": {
+                                "Fn::GetAtt": [
+                                    "LoadBalancer",
+                                    "DNSName"
+                                ]
+                            },
+                            "EvaluateTargetHealth": true,
+                            "HostedZoneId": {
+                                "Fn::GetAtt": [
+                                    "LoadBalancer",
+                                    "CanonicalHostedZoneID"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a806bcec-e42e-4ba7-b65e-15f80bf05440"
+                }
+            }
+        },
+        "ELBListenerSSL": {
+            "Type": "AWS::ElasticLoadBalancingV2::Listener",
+            "Properties": {
+                "Certificates": [
+                    {
+                        "CertificateArn": {
+                            "Ref": "PublicAlbAcmCertificate"
+                        }
+                    }
+                ],
+                "DefaultActions": [
+                    {
+                        "Type": "forward",
+                        "TargetGroupArn": {
+                            "Ref": "ELBTargetGroup"
+                        }
+                    }
+                ],
+                "LoadBalancerArn": {
+                    "Ref": "LoadBalancer"
+                },
+                "Port": 443,
+                "Protocol": "HTTPS"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "93dd3a36-c3fd-4cd7-846c-bff35164b4e9"
+                }
+            }
+        },
+        "PublicAlbListenerNoSslCertificate": {
+            "Type": "AWS::ElasticLoadBalancingV2::Listener",
+            "Properties": {
+                "DefaultActions": [
+                    {
+                        "Type": "redirect",
+                        "RedirectConfig": {
+                            "Protocol": "HTTPS",
+                            "Port": 443,
+                            "Host": "#{host}",
+                            "Path": "/#{path}",
+                            "Query": "#{query}",
+                            "StatusCode": "HTTP_301"
+                        }
+                    }
+                ],
+                "LoadBalancerArn": {
+                    "Ref": "LoadBalancer"
+                },
+                "Port": 80,
+                "Protocol": "HTTP"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6c4f3a29-2d2b-424b-b4fa-f280110bb1ac"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "VpcId": {
+            "Type": "AWS::EC2::VPC::Id",
+            "Description": "VpcId of your existing Virtual Private Cloud (VPC)",
+            "ConstraintDescription": "must be the VPC Id of an existing Virtual Private Cloud."
+        },
+        "KeyName": {
+            "Description": "The EC2 Key Pair to allow SSH access to the instances",
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+        },
+        "SSHLocation": {
+            "Description": "The IP address range that can be used to SSH to the EC2 instances",
+            "Type": "String",
+            "Default": "0.0.0.0/0",
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+        },
+        "Subnets": {
+            "Type": "List<AWS::EC2::Subnet::Id>",
+            "Description": "The list of SubnetIds in your Virtual Private Cloud (VPC), select 3",
+            "ConstraintDescription": "must be a list of at least two existing subnets associated with at least two different availability zones. They should be residing in the selected Virtual Private Cloud."
+        },
+        "InstanceType": {
+            "Description": "WebServer EC2 instance type",
+            "Type": "String",
+            "Default": "t2.micro",
+            "AllowedValues": [
+                "t2.nano",
+                "t2.micro",
+                "t2.small",
+                "t2.medium",
+                "t2.large"
+            ],
+            "ConstraintDescription": "must be a valid EC2 instance type."
+        },
+        "DatabaseInstanceType": {
+            "Description": "Database instance type",
+            "Type": "String",
+            "Default": "db.t2.small",
+            "AllowedValues": [
+                "db.t2.small",
+                "db.t2.medium",
+                "db.t2.large"
+            ],
+            "ConstraintDescription": "must select a valid database instance type."
+        },
+        "DBAllocatedStorage": {
+            "Default": "5",
+            "Description": "The size of the database (Gb)",
+            "Type": "Number",
+            "MinValue": "5",
+            "MaxValue": "1024",
+            "ConstraintDescription": "must be between 5 and 1024Gb."
+        },
+        "DatabaseName": {
+            "Default": "wordpressdb",
+            "Description": "The WordPress database name",
+            "Type": "String",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DatabaseMasterUsername": {
+            "NoEcho": "true",
+            "Description": "The WordPress database admin account username",
+            "Default": "admin",
+            "Type": "String",
+            "MinLength": "5",
+            "MaxLength": "16",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DatabaseMasterPassword": {
+            "NoEcho": "true",
+            "Description": "The WordPress database admin account password",
+            "Type": "String",
+            "MinLength": "8",
+            "MaxLength": "41",
+            "AllowedPattern": "[a-zA-Z0-9]*",
+            "ConstraintDescription": "must contain only alphanumeric characters."
+        },
+        "MultiAZDatabase": {
+            "Default": "false",
+            "Description": "Create a Multi-AZ MySQL Amazon RDS database instance",
+            "Type": "String",
+            "AllowedValues": [
+                "true",
+                "false"
+            ],
+            "ConstraintDescription": "must be either true or false."
+        },
+        "OperatorEMail": {
+            "Description": "EMail address to notify if there are any scaling operations",
+            "Type": "String",
+            "Default": "katie@berrycloud.co.uk",
+            "AllowedPattern": "([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)",
+            "ConstraintDescription": "must be a valid email address."
+        },
+        "PublicAlbAcmCertificate": {
+            "AllowedPattern": "^$|(arn:aws:acm:)([a-z0-9/:-])*([a-z0-9])$",
+            "Description": "The AWS Certification Manager certificate ARN for the ALB certificate - this certificate should be created in the region you wish to run the ALB and must reference the WordPress domain name you use below.",
+            "Type": "String"
+        },
+        "WPDomainName": {
+            "AllowedPattern": "^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
+            "Description": "The main domain name of the WordPress site (e.g. example.com).",
+            "Type": "String"
+        },
+        "WPTitle": {
+            "AllowedPattern": "^([a-zA-Z0-9])([a-zA-Z0-9 _-]*)([a-zA-Z0-9])$",
+            "Description": "The WordPress website title.",
+            "Type": "String"
+        },
+        "WPAdminEmail": {
+            "AllowedPattern": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+            "Description": "The admin email address for WordPress and AWS notifications.",
+            "Type": "String"
+        },
+        "WPAdminPassword": {
+            "AllowedPattern": "^([a-zA-Z0-9`~!#$%^&*()_+,\\\\-])*$",
+            "ConstraintDescription": "Must be letters (upper or lower), numbers, spaces, and these special characters `~!#$%^&*()_+,-",
+            "Description": "The WordPress admin password. Letters, numbers, spaces, and these special characters `~!#$%^&*()_+,-",
+            "Type": "String",
+            "NoEcho": true
+        },
+        "WPAdminUsername": {
+            "Default": "admin",
+            "AllowedPattern": "^([a-zA-Z0-9])([a-zA-Z0-9_-])*([a-zA-Z0-9])$",
+            "Description": "The WordPress admin username.",
+            "Type": "String"
+        },
+        "WPVersion": {
+            "AllowedValues": [
+                "latest",
+                "nightly",
+                4.5,
+                4.6,
+                4.7,
+                4.8,
+                4.9
+            ],
+            "Default": "latest",
+            "Type": "String"
+        }
+    },
+    "Mappings": {
+        "AWSInstanceType2Arch": {
+            "t2.nano": {
+                "Arch": "HVM64"
+            },
+            "t2.micro": {
+                "Arch": "HVM64"
+            },
+            "t2.small": {
+                "Arch": "HVM64"
+            },
+            "t2.medium": {
+                "Arch": "HVM64"
+            },
+            "t2.large": {
+                "Arch": "HVM64"
+            }
+        },
+        "AWSInstanceType2NATArch": {
+            "t2.nano": {
+                "Arch": "NATHVM64"
+            },
+            "t2.micro": {
+                "Arch": "NATHVM64"
+            },
+            "t2.small": {
+                "Arch": "NATHVM64"
+            },
+            "t2.medium": {
+                "Arch": "NATHVM64"
+            },
+            "t2.large": {
+                "Arch": "NATHVM64"
+            }
+        },
+        "AWSRegionArch2AMI": {
+            "eu-west-1": {
+                "HVM64": "ami-0ea3405d2d2522162"
+            },
+            "eu-west-2": {
+                "HVM64": "ami-032598fcc7e9d1c7a"
+            }
+        }
+    },
+    "Outputs": {
+        "PublicAlbTargetGroupArn": {
+            "Value": {
+                "Ref": "ELBTargetGroup"
+            }
+        },
+        "PublicAlbCanonicalHostedZoneId": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "LoadBalancer",
+                    "CanonicalHostedZoneID"
+                ]
+            }
+        },
+        "PublicAlbDnsName": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "LoadBalancer",
+                    "DNSName"
+                ]
+            }
+        },
+        "PublicAlbFullName": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "LoadBalancer",
+                    "LoadBalancerFullName"
+                ]
+            }
+        },
+        "URL": {
+            "Description": "The URL of the website",
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "https://",
+                        {
+                            "Ref": "WPDomainName"
+                        }
+                    ]
+                ]
+            }
+        }
+    }
+}
