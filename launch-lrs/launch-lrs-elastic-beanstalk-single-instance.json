@@ -1,0 +1,241 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Metadata": {
+		"AWS::CloudFormation::Interface": {
+			"ParameterGroups": [
+				{
+					"Label": {
+						"default": "Database Parameters"
+					},
+					"Parameters": [
+						"DatabasePassword"
+					]
+				}
+			],
+			"ParameterLabels": {
+				"DatabasePassword": {
+					"default": "Database Password"
+				}
+			}
+		}
+	},
+	"Parameters": {
+		"DatabasePassword": {
+			"NoEcho": true,
+			"Description": "The database admin account password",
+			"Type": "String",
+			"MinLength": "1",
+			"MaxLength": "41",
+			"AllowedPattern": "^[a-zA-Z0-9]*$"
+		}
+	},
+	"Resources": {
+		"Application": {
+			"Type": "AWS::ElasticBeanstalk::Application",
+			"Properties": {
+				"Description": "Launch LRS from Launch Learning"
+			}
+		},
+		"ApplicationVersion": {
+			"Type": "AWS::ElasticBeanstalk::ApplicationVersion",
+			"Properties": {
+				"ApplicationName": {
+					"Ref": "Application"
+				},
+				"Description": "1.0.11",
+				"SourceBundle": {
+					"S3Bucket": {
+						"Fn::Join": [
+							"-",
+							[
+								"launch-lrs-deploy",
+								{
+									"Ref": "AWS::Region"
+								}
+							]
+						]
+					},
+					"S3Key": "launch-lrs-1.0.11.jar"
+				}
+			}
+		},
+		"SingleInstanceConfigurationTemplate": {
+			"Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+			"Properties": {
+				"ApplicationName": {
+					"Ref": "Application"
+				},
+				"Description": "Launch LRS single instance configuration",
+				"OptionSettings": [
+					{
+						"Namespace": "aws:elasticbeanstalk:environment",
+						"OptionName": "EnvironmentType",
+						"Value": "SingleInstance"
+					},
+					{
+						"Namespace": "aws:autoscaling:launchconfiguration",
+						"OptionName": "InstanceType",
+						"Value": "t3.micro"
+					},
+					{
+						"Namespace": "aws:autoscaling:launchconfiguration",
+						"OptionName": "IamInstanceProfile",
+						"Value": "aws-elasticbeanstalk-ec2-role"
+					},
+					{
+						"Namespace": "aws:autoscaling:launchconfiguration",
+						"OptionName": "SecurityGroups",
+						"Value": {
+							"Ref": "Ec2SecurityGroup"
+						}
+					},
+					{
+						"Namespace": "aws:elasticbeanstalk:application",
+						"OptionName": "Application Healthcheck URL",
+						"Value": "/actuator/health"
+					},
+					{
+						"Namespace": "aws:elasticbeanstalk:application:environment",
+						"OptionName": "SERVER_PORT",
+						"Value": "5000"
+					},
+					{
+						"Namespace": "aws:elasticbeanstalk:application:environment",
+						"OptionName": "SPRING_DATASOURCE_URL",
+						"Value": {
+							"Fn::Join": [
+								"",
+								[
+									"jdbc:mysql://",
+									{
+										"Fn::GetAtt": [
+											"Rds",
+											"Endpoint.Address"
+										]
+									},
+									":",
+									{
+										"Fn::GetAtt": [
+											"Rds",
+											"Endpoint.Port"
+										]
+									},
+									"/launch_lrs?zeroDateTimeBehavior=convertToNull"
+								]
+							]
+						}
+					},
+					{
+						"Namespace": "aws:elasticbeanstalk:application:environment",
+						"OptionName": "SPRING_DATASOURCE_USERNAME",
+						"Value": "lrs"
+					},
+					{
+						"Namespace": "aws:elasticbeanstalk:application:environment",
+						"OptionName": "SPRING_DATASOURCE_PASSWORD",
+						"Value": {
+							"Ref": "DatabasePassword"
+						}
+					}
+				],
+				"SolutionStackName": "64bit Amazon Linux 2 v3.1.1 running Corretto 11"
+			}
+		},
+		"Environment": {
+			"Type": "AWS::ElasticBeanstalk::Environment",
+			"Properties": {
+				"ApplicationName": {
+					"Ref": "Application"
+				},
+				"Description": "Launch LRS Environment",
+				"TemplateName": {
+					"Ref": "SingleInstanceConfigurationTemplate"
+				},
+				"VersionLabel": {
+					"Ref": "ApplicationVersion"
+				}
+			}
+		},
+		"Rds": {
+			"Type": "AWS::RDS::DBInstance",
+			"Properties": {
+				"AllocatedStorage": "20",
+				"BackupRetentionPeriod": "30",
+				"DBInstanceClass": "db.t3.small",
+				"DBName": "launch_lrs",
+				"Engine": "mysql",
+				"EngineVersion": "8.0.19",
+				"MasterUsername": "lrs",
+				"MasterUserPassword": {
+					"Ref": "DatabasePassword"
+				},
+				"PreferredBackupWindow": "05:00-06:00",
+				"StorageEncrypted": true,
+				"VPCSecurityGroups": [
+					{
+						"Fn::GetAtt": [
+							"RdsSecurityGroup",
+							"GroupId"
+						]
+					}
+				]
+			}
+		},
+		"RdsSecurityGroup": {
+			"Type": "AWS::EC2::SecurityGroup",
+			"Properties": {
+				"GroupDescription": "Launch LRS RDS security group"
+			}
+		},
+		"Ec2SecurityGroup": {
+			"Type": "AWS::EC2::SecurityGroup",
+			"Properties": {
+				"GroupDescription": "Launch LRS EC2 security group"
+			}
+		},
+		"RdsSecurityGroupIngress": {
+			"Type": "AWS::EC2::SecurityGroupIngress",
+			"Properties": {
+				"Description": "Allows access to Launch LRS RDS instance",
+				"GroupName": {
+					"Ref": "RdsSecurityGroup"
+				},
+				"SourceSecurityGroupName": {
+					"Ref": "Ec2SecurityGroup"
+				},
+				"IpProtocol": "tcp",
+				"FromPort": {
+					"Fn::GetAtt": [
+						"Rds",
+						"Endpoint.Port"
+					]
+				},
+				"ToPort": {
+					"Fn::GetAtt": [
+						"Rds",
+						"Endpoint.Port"
+					]
+				}
+			}
+		}
+	},
+	"Outputs": {
+		"url": {
+			"Description": "The URL of your Launch LRS",
+			"Value": {
+				"Fn::Join": [
+					"",
+					[
+						"http://",
+						{
+							"Fn::GetAtt": [
+								"Environment",
+								"EndpointURL"
+							]
+						}
+					]
+				]
+			}
+		}
+	}
+}
