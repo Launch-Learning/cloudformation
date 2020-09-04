@@ -1,0 +1,25 @@
+name: Publish to S3
+
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.6'
+    - name: Deploy
+      run: |
+        pip install awscli
+        aws s3 cp launch-lrs/launch-lrs-elastic-beanstalk-single-instance.json s3://launch-learning
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
