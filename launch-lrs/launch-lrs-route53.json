@@ -1,6 +1,6 @@
 {
 	"AWSTemplateFormatVersion": "2010-09-09",
-	"Description": "Reference Architecture to host Java application on AWS - Creates Route 53 record set (if selected)",
+	"Description": "Creates record set in chosen Route 53 hosted zone",
 	"Metadata": {
 		"AWS::CloudFormation::Interface": {
 			"ParameterGroups": [
@@ -9,48 +9,47 @@
 						"default": "Route 53 Parameters"
 					},
 					"Parameters": [
-						"DnsEndpoint",
-						"DnsHostId",
-						"DomainName",
-						"SubdomainName"
+						"TargetDNSName",
+						"TargetHostedZoneId",
+						"HostedZoneId",
+						"DNSName"
 					]
 				}
 			],
 			"ParameterLabels": {
-				"DnsEndpoint": {
-					"default": "Elastic Beastalk enviroment domain name"
+				"TargetDNSName": {
+					"default": "Target domain name"
 				},
-				"DnsHostId": {
-					"default": "Elastic Beanstalk Route 53 Hosted Zone ID"
+				"TargetHostedZoneId": {
+					"default": "Target DNS Host Zone ID"
 				},
-				"DomainName": {
-					"default": "Route 53 Hosted Zone Name"
+				"HostedZoneId": {
+					"default": "Route 53 Hosted Zone ID"
 				},
-				"SubdomainName": {
-					"default": "Subdomain to add to Route 53 Hosted Zone"
+				"DNSName": {
+					"default": "The domain name record to be created"
 				}
 			}
 		}
 	},
 	"Parameters": {
-		"DnsEndpoint": {
+		"TargetDNSName": {
 			"AllowedPattern": "^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
 			"Description": "For instance launch-lrs-demo.eba-svmpq9fa.us-east-1.elasticbeanstalk.com",
 			"Type": "String"
 		},
-		"DnsHostId": {
+		"TargetHostedZoneId": {
 			"AllowedPattern": "^[A-Z0-9]{14}$",
-			"Description": "See https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html for possible values",
+			"Description": "For instance Z117KPS5GTRQ2G. See https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html for possible values",
 			"Type": "String"
 		},
-		"DomainName": {
-			"AllowedPattern": "^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
+		"HostedZoneId": {
 			"Description": "For instance example.com",
-			"Type": "String"
+			"Type": "AWS::Route53::HostedZone::Id"
 		},
-		"SubdomainName": {
+		"DNSName": {
 			"AllowedPattern": "^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
-			"Description": "For instance www",
+			"Description": "For instance lrs.example.com. The domain name record must be valid for the selected Hosted Zone ID.",
 			"Type": "String"
 		}
 	},
@@ -58,42 +57,22 @@
 		"RecordSet": {
 			"Type": "AWS::Route53::RecordSetGroup",
 			"Properties": {
-				"HostedZoneName": {
-					"Fn::Join": [
-						"",
-						[
-							{
-								"Ref": "DomainName"
-							},
-							"."
-						]
-					]
+				"HostedZoneId": {
+					"Ref": "HostedZoneId"
 				},
 				"RecordSets": [
 					{
 						"Name": {
-							"Fn::Join": [
-								"",
-								[
-									{
-										"Ref": "SubdomainName"
-									},
-									".",
-									{
-										"Ref": "DomainName"
-									},
-									"."
-								]
-							]
+							"Ref": "DNSName"
 						},
 						"Type": "A",
 						"AliasTarget": {
 							"DNSName": {
-								"Ref": "DnsEndpoint"
+								"Ref": "TargetDNSName"
 							},
 							"EvaluateTargetHealth": false,
 							"HostedZoneId": {
-								"Ref": "DnsHostId"
+								"Ref": "TargetHostedZoneId"
 							}
 						}
 					}
