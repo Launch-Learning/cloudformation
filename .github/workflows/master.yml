@@ -19,8 +19,9 @@ jobs:
     - name: Deploy
       run: |
         pip install awscli
-        aws s3 cp launch-lrs/launch-lrs-elastic-beanstalk-single-instance.json s3://launch-learning
         aws s3 cp launch-lrs/launch-lrs-route53.json s3://launch-learning
+        aws s3 cp launch-lrs/launch-lrs-elastic-beanstalk-single-instance.json s3://launch-learning
+        aws s3 cp launch-lrs/launch-lrs-elastic-beanstalk-load-balanced.json s3://launch-learning
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
