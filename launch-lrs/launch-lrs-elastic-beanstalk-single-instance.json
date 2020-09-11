@@ -43,7 +43,7 @@
 				"ApplicationName": {
 					"Ref": "Application"
 				},
-				"Description": "1.0.11",
+				"Description": "1.0.12",
 				"SourceBundle": {
 					"S3Bucket": {
 						"Fn::Join": [
