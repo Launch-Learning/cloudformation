@@ -39,8 +39,9 @@
 			"Type": "String"
 		},
 		"TargetHostedZoneId": {
-			"AllowedPattern": "^[A-Z0-9]{14}$",
 			"Description": "For instance Z117KPS5GTRQ2G. See https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html for possible values",
+			"MaxLength": 15,
+			"MinLength": 1,
 			"Type": "String"
 		},
 		"HostedZoneId": {
