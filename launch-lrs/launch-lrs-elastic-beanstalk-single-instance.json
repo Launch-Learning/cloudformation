@@ -5,28 +5,29 @@
 			"ParameterGroups": [
 				{
 					"Label": {
-						"default": "Database Parameters"
+						"default": "Database Tier"
 					},
 					"Parameters": [
-						"DatabasePassword"
+						"DatabaseMasterPassword"
 					]
 				}
 			],
 			"ParameterLabels": {
-				"DatabasePassword": {
+				"DatabaseMasterPassword": {
 					"default": "Database Password"
 				}
 			}
 		}
 	},
 	"Parameters": {
-		"DatabasePassword": {
+		"DatabaseMasterPassword": {
+			"AllowedPattern": "^([a-zA-Z0-9`~!#$%^&*()_+,\\\\-])*$",
+			"ConstraintDescription": "Must be letters (upper or lower), numbers, spaces, and these special characters `~!#$%^&*()_+,-",
+			"Description": "The RDS master password.",
+			"MaxLength": 41,
+			"MinLength": 8,
 			"NoEcho": true,
-			"Description": "The database admin account password",
-			"Type": "String",
-			"MinLength": "1",
-			"MaxLength": "41",
-			"AllowedPattern": "^[a-zA-Z0-9]*$"
+			"Type": "String"
 		}
 	},
 	"Resources": {
@@ -134,7 +135,7 @@
 						"Namespace": "aws:elasticbeanstalk:application:environment",
 						"OptionName": "SPRING_DATASOURCE_PASSWORD",
 						"Value": {
-							"Ref": "DatabasePassword"
+							"Ref": "DatabaseMasterPassword"
 						}
 					}
 				],
@@ -161,13 +162,13 @@
 			"Properties": {
 				"AllocatedStorage": "20",
 				"BackupRetentionPeriod": "30",
-				"DBInstanceClass": "db.t3.small",
+				"DBInstanceClass": "db.t3.micro",
 				"DBName": "launch_lrs",
 				"Engine": "mysql",
 				"EngineVersion": "8.0.19",
 				"MasterUsername": "lrs",
 				"MasterUserPassword": {
-					"Ref": "DatabasePassword"
+					"Ref": "DatabaseMasterPassword"
 				},
 				"PreferredBackupWindow": "05:00-06:00",
 				"StorageEncrypted": true,
