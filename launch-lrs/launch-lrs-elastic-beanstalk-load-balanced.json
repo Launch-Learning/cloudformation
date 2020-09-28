@@ -297,7 +297,7 @@
 						"Fn::Join": [
 							"-",
 							[
-								"launch-lrs-deploy",
+								"launch-learning",
 								{
 									"Ref": "AWS::Region"
 								}
