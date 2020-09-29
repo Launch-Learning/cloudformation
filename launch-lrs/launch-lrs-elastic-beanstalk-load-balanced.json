@@ -291,7 +291,7 @@
 				"ApplicationName": {
 					"Ref": "Application"
 				},
-				"Description": "1.0.12",
+				"Description": "Initial version",
 				"SourceBundle": {
 					"S3Bucket": {
 						"Fn::Join": [
@@ -304,7 +304,7 @@
 							]
 						]
 					},
-					"S3Key": "launch-lrs-1.0.15.jar"
+					"S3Key": "launch-lrs-1.0.16.jar"
 				}
 			},
 			"Metadata": {
