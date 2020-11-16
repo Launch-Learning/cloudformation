@@ -10,7 +10,8 @@
 					"Parameters": [
 						"DNSName",
 						"HostedZoneId",
-						"CertificateArn"
+						"CertificateArn",
+						"SolutionStackName"
 					]
 				},
 				{
@@ -34,6 +35,9 @@
 				},
 				"DatabaseMasterPassword": {
 					"default": "Database Password"
+				},
+				"SolutionStackName": {
+					"default": "Solution Stack Name"
 				}
 			}
 		},
@@ -172,6 +176,11 @@
 			"AllowedPattern": "^(arn:aws:acm:)([a-z0-9/:-])*([a-z0-9])$",
 			"Description": "The AWS Certification Manager certificate ARN - certificate must be in the same region as this stack.",
 			"Type": "String"
+		},
+		"SolutionStackName": {
+		"Description": "The name of the latest Elastic Beanstalk 64bit Amazon Linux 2 running Corretto 11 solution stack. Check if the default solution stack below is the latest and replace if required. For the latest verion check the documentation: https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.javase",
+		"Type": "String",
+		"Default": "64bit Amazon Linux 2 v3.1.3 running Corretto 11"
 		},
 		"DatabaseMasterPassword": {
 			"AllowedPattern": "^([a-zA-Z0-9`~!#$%^&*()_+,\\\\-])*$",
@@ -414,7 +423,9 @@
 						}
 					}
 				],
-				"SolutionStackName": "64bit Amazon Linux 2 v3.1.3 running Corretto 11"
+				"SolutionStackName": {
+				    "Ref": "SolutionStackName"
+				}
 			},
 			"Metadata": {
 				"AWS::CloudFormation::Designer": {
