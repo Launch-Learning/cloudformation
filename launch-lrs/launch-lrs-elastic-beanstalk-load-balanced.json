@@ -502,7 +502,7 @@
 					"Ref": "DatabaseMasterPassword"
 				},
 				"PreferredBackupWindow": "05:00-06:00",
-				"StorageEncrypted": true,
+				"StorageEncrypted": false,
 				"VPCSecurityGroups": [
 					{
 						"Fn::GetAtt": [
