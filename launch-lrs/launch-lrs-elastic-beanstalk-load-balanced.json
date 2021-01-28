@@ -1,623 +1,588 @@
 {
-	"AWSTemplateFormatVersion": "2010-09-09",
-	"Metadata": {
-		"AWS::CloudFormation::Interface": {
-			"ParameterGroups": [
-				{
-					"Label": {
-						"default": "General AWS"
-					},
-					"Parameters": [
-						"DNSName",
-						"HostedZoneId",
-						"CertificateArn",
-						"SolutionStackName"
-					]
-				},
-				{
-					"Label": {
-						"default": "Database Tier"
-					},
-					"Parameters": [
-						"DatabaseMasterPassword"
-					]
-				}
-			],
-			"ParameterLabels": {
-				"HostedZoneId": {
-					"default": "Hosted Zone ID"
-				},
-				"DNSName": {
-					"default": "Domain name"
-				},
-				"CertificateArn": {
-					"default": "Certificate ARN"
-				},
-				"DatabaseMasterPassword": {
-					"default": "Database Password"
-				},
-				"SolutionStackName": {
-					"default": "Solution Stack Name"
-				}
-			}
-		},
-		"AWS::CloudFormation::Designer": {
-			"78d6aaf8-3cd3-4fce-b750-3b144a829e28": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": -30,
-					"y": 150
-				},
-				"z": 1,
-				"embeds": []
-			},
-			"e61c1a29-a401-4f21-b0a9-d4c317714684": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 420,
-					"y": 150
-				},
-				"z": 1,
-				"embeds": []
-			},
-			"d6c858d3-c070-49ff-9dde-91d66f20d9b6": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 320,
-					"y": 150
-				},
-				"z": 0,
-				"embeds": [],
-				"isassociatedwith": [
-					"e61c1a29-a401-4f21-b0a9-d4c317714684"
-				]
-			},
-			"c3e8371c-53bc-4ec1-84bd-e86c6a79f585": {
-				"size": {
-					"width": 230,
-					"height": 250
-				},
-				"position": {
-					"x": 60,
-					"y": 110
-				},
-				"z": 1,
-				"embeds": [
-					"f8323c94-ae8b-4c94-83b1-1af612bc4939",
-					"05b3c73f-fea1-4823-949a-174d69db4175",
-					"e9c30f5e-077a-4af8-a0a4-ac85276b8750"
-				]
-			},
-			"f8323c94-ae8b-4c94-83b1-1af612bc4939": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 90,
-					"y": 150
-				},
-				"z": 2,
-				"parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
-				"embeds": [],
-				"iscontainedinside": [
-					"c3e8371c-53bc-4ec1-84bd-e86c6a79f585"
-				]
-			},
-			"05b3c73f-fea1-4823-949a-174d69db4175": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 190,
-					"y": 270
-				},
-				"z": 2,
-				"parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
-				"embeds": [],
-				"iscontainedinside": [
-					"c3e8371c-53bc-4ec1-84bd-e86c6a79f585"
-				]
-			},
-			"e9c30f5e-077a-4af8-a0a4-ac85276b8750": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 90,
-					"y": 270
-				},
-				"z": 2,
-				"parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
-				"embeds": [],
-				"isassociatedwith": [
-					"f8323c94-ae8b-4c94-83b1-1af612bc4939"
-				],
-				"iscontainedinside": [
-					"c3e8371c-53bc-4ec1-84bd-e86c6a79f585"
-				]
-			},
-			"4901ecd5-9260-4477-a203-7875ee53acb7": {
-				"size": {
-					"width": 60,
-					"height": 60
-				},
-				"position": {
-					"x": 90,
-					"y": 400
-				},
-				"z": 1,
-				"embeds": []
-			}
-		}
-	},
-	"Parameters": {
-		"HostedZoneId": {
-			"Description": "Select the Route 53 Hosted Zone ID for the domain name.",
-			"Type": "AWS::Route53::HostedZone::Id"
-		},
-		"DNSName": {
-			"AllowedPattern": "^$|(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
-			"Description": "The domain name for this Launch LRS server",
-			"Type": "String"
-		},
-		"CertificateArn": {
-			"AllowedPattern": "^(arn:aws:acm:)([a-z0-9/:-])*([a-z0-9])$",
-			"Description": "The AWS Certification Manager certificate ARN - certificate must be in the same region as this stack.",
-			"Type": "String"
-		},
-		"SolutionStackName": {
-			"Description": "The name of the latest Elastic Beanstalk 64bit Amazon Linux 2 running Corretto 11 solution stack. Check if the default solution stack below is the latest and replace if required. For the latest verion check the documentation: https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.javase",
-			"Type": "String",
-			"Default": "64bit Amazon Linux 2 v3.1.3 running Corretto 11"
-		},
-		"DatabaseMasterPassword": {
-			"AllowedPattern": "^([a-zA-Z0-9`~!#$%^&*()_+,\\\\-])*$",
-			"ConstraintDescription": "Must be letters (upper or lower), numbers, spaces, and these special characters `~!#$%^&*()_+,-",
-			"Description": "The RDS master password.",
-			"MaxLength": 41,
-			"MinLength": 8,
-			"NoEcho": true,
-			"Type": "String"
-		}
-	},
-	"Conditions": {
-		"CreateRecordSet": {
-			"Fn::Not": [
-				{
-					"Fn::Equals": [
-						{
-							"Ref": "HostedZoneId"
-						},
-						""
-					]
-				}
-			]
-		}
-	},
-	"Mappings": {
-		"HostIdMap": {
-			"us-gov-east-1": {
-				"LoadBalancer": "Z166TLBEWOO7G0"
-			},
-			"us-gov-west-1": {
-				"LoadBalancer": "Z33AYJ8TM3BH4J"
-			},
-			"us-east-2": {
-				"LoadBalancer": "Z3AADJGX6KTTL2"
-			},
-			"us-east-1": {
-				"LoadBalancer": "Z35SXDOTRQ7X7K"
-			},
-			"us-west-1": {
-				"LoadBalancer": "Z368ELLRRE2KJ0"
-			},
-			"us-west-2": {
-				"LoadBalancer": "Z1H1FL5HABSF5"
-			},
-			"af-south-1": {
-				"LoadBalancer": "Z268VQBMOI5EKX"
-			},
-			"ap-east-1": {
-				"LoadBalancer": "Z3DQVH9N71FHZ0"
-			},
-			"ap-south-1": {
-				"LoadBalancer": "ZP97RAFLXTNZK"
-			},
-			"ap-northeast-3": {
-				"LoadBalancer": "Z5LXEXXYW11ES"
-			},
-			"ap-northeast-2": {
-				"LoadBalancer": "ZWKZPGTI48KDX"
-			},
-			"ap-southeast-1": {
-				"LoadBalancer": "Z1LMS91P8CMLE5"
-			},
-			"ap-southeast-2": {
-				"LoadBalancer": "Z1GM3OXH4ZPM65"
-			},
-			"ap-northeast-1": {
-				"LoadBalancer": "Z14GRHDCWA56QT"
-			},
-			"ca-central-1": {
-				"LoadBalancer": "ZQSVJUPU6J1EY"
-			},
-			"cn-north-1": {
-				"LoadBalancer": "Z1GDH35T77C1KE"
-			},
-			"cn-northwest-1": {
-				"LoadBalancer": "ZM7IZAIOVVDZF"
-			},
-			"eu-central-1": {
-				"LoadBalancer": "Z215JYRZR1TBD5"
-			},
-			"eu-west-1": {
-				"LoadBalancer": "Z32O12XQLNTSW2"
-			},
-			"eu-west-2": {
-				"LoadBalancer": "ZHURV8PSTC4K8"
-			},
-			"eu-west-3": {
-				"LoadBalancer": "Z3Q77PNBQS71R4"
-			},
-			"eu-north-1": {
-				"LoadBalancer": "Z23TAZ6LKFMNIO"
-			},
-			"me-south-1": {
-				"LoadBalancer": "ZS929ML54UICD"
-			},
-			"sa-east-1": {
-				"LoadBalancer": "Z2P70J7HTTTPLU"
-			}
-		}
-	},
-	"Resources": {
-		"LaunchLrsRole": {
-			"Type": "AWS::IAM::Role",
-			"Properties": {
-				"AssumeRolePolicyDocument": {
-					"Statement": [
-						{
-							"Effect": "Allow",
-							"Principal": {
-								"Service": "ec2.amazonaws.com"
-							},
-							"Action": [
-								"sts:AssumeRole"
-							]
-						}
-					]
-				},
-				"ManagedPolicyArns": [
-					"arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
-					"arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker",
-					"arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
-				]
-			}
-		},
-		"LaunchLrsProfile": {
-			"Type": "AWS::IAM::InstanceProfile",
-			"Properties": {
-				"Roles": [
-					{
-						"Ref": "LaunchLrsRole"
-					}
-				]
-			}
-		},
-		"Application": {
-			"Type": "AWS::ElasticBeanstalk::Application",
-			"Properties": {
-				"Description": "Launch LRS from Launch Learning"
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585"
-				}
-			}
-		},
-		"ApplicationVersion": {
-			"Type": "AWS::ElasticBeanstalk::ApplicationVersion",
-			"Properties": {
-				"ApplicationName": {
-					"Ref": "Application"
-				},
-				"Description": "Initial version",
-				"SourceBundle": {
-					"S3Bucket": {
-						"Fn::Join": [
-							"-",
-							[
-								"launch-learning",
-								{
-									"Ref": "AWS::Region"
-								}
-							]
-						]
-					},
-					"S3Key": "launch-lrs-1.0.19.jar"
-				}
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "05b3c73f-fea1-4823-949a-174d69db4175"
-				}
-			}
-		},
-		"LoadBalancedConfigurationTemplate": {
-			"Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
-			"Properties": {
-				"ApplicationName": {
-					"Ref": "Application"
-				},
-				"Description": "Launch LRS load balanced configuration",
-				"OptionSettings": [
-					{
-						"Namespace": "aws:elasticbeanstalk:environment",
-						"OptionName": "EnvironmentType",
-						"Value": "LoadBalanced"
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:environment",
-						"OptionName": "LoadBalancerType",
-						"Value": "application"
-					},
-					{
-						"Namespace": "aws:elbv2:listener:443",
-						"OptionName": "Protocol",
-						"Value": "HTTPS"
-					},
-					{
-						"Namespace": "aws:elbv2:listener:443",
-						"OptionName": "SSLCertificateArns",
-						"Value": {
-							"Ref": "CertificateArn"
-						}
-					},
-					{
-						"Namespace": "aws:elbv2:listener:443",
-						"OptionName": "SSLPolicy",
-						"Value": "ELBSecurityPolicy-TLS-1-2-2017-01"
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:environment:process:default",
-						"OptionName": "HealthCheckPath",
-						"Value": "/actuator/health"
-					},
-					{
-						"Namespace": "aws:autoscaling:launchconfiguration",
-						"OptionName": "InstanceType",
-						"Value": "t2.micro"
-					},
-					{
-						"Namespace": "aws:autoscaling:launchconfiguration",
-						"OptionName": "IamInstanceProfile",
-						"Value": {
-							"Ref": "LaunchLrsProfile"
-						}
-					},
-					{
-						"Namespace": "aws:autoscaling:launchconfiguration",
-						"OptionName": "SecurityGroups",
-						"Value": {
-							"Ref": "Ec2SecurityGroup"
-						}
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:application:environment",
-						"OptionName": "SERVER_PORT",
-						"Value": "5000"
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:application:environment",
-						"OptionName": "SPRING_DATASOURCE_URL",
-						"Value": {
-							"Fn::Join": [
-								"",
-								[
-									"jdbc:mysql://",
-									{
-										"Fn::GetAtt": [
-											"Rds",
-											"Endpoint.Address"
-										]
-									},
-									":",
-									{
-										"Fn::GetAtt": [
-											"Rds",
-											"Endpoint.Port"
-										]
-									},
-									"/launch_lrs?zeroDateTimeBehavior=convertToNull"
-								]
-							]
-						}
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:application:environment",
-						"OptionName": "SPRING_DATASOURCE_USERNAME",
-						"Value": "lrs"
-					},
-					{
-						"Namespace": "aws:elasticbeanstalk:application:environment",
-						"OptionName": "SPRING_DATASOURCE_PASSWORD",
-						"Value": {
-							"Ref": "DatabaseMasterPassword"
-						}
-					}
-				],
-				"SolutionStackName": {
-					"Ref": "SolutionStackName"
-				}
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "f8323c94-ae8b-4c94-83b1-1af612bc4939"
-				}
-			}
-		},
-		"Environment": {
-			"Type": "AWS::ElasticBeanstalk::Environment",
-			"Properties": {
-				"ApplicationName": {
-					"Ref": "Application"
-				},
-				"Description": "Launch LRS Environment",
-				"TemplateName": {
-					"Ref": "LoadBalancedConfigurationTemplate"
-				},
-				"VersionLabel": {
-					"Ref": "ApplicationVersion"
-				}
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "e9c30f5e-077a-4af8-a0a4-ac85276b8750"
-				}
-			}
-		},
-		"Rds": {
-			"Type": "AWS::RDS::DBInstance",
-			"Properties": {
-				"AllocatedStorage": "20",
-				"BackupRetentionPeriod": "30",
-				"DBInstanceClass": "db.t2.micro",
-				"DBName": "launch_lrs",
-				"Engine": "mysql",
-				"EngineVersion": "8.0.19",
-				"MasterUsername": "lrs",
-				"MasterUserPassword": {
-					"Ref": "DatabaseMasterPassword"
-				},
-				"PreferredBackupWindow": "05:00-06:00",
-				"StorageEncrypted": false,
-				"VPCSecurityGroups": [
-					{
-						"Fn::GetAtt": [
-							"RdsSecurityGroup",
-							"GroupId"
-						]
-					}
-				]
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "d6c858d3-c070-49ff-9dde-91d66f20d9b6"
-				}
-			}
-		},
-		"RdsSecurityGroup": {
-			"Type": "AWS::EC2::SecurityGroup",
-			"Properties": {
-				"GroupDescription": "Launch LRS RDS security group"
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "e61c1a29-a401-4f21-b0a9-d4c317714684"
-				}
-			}
-		},
-		"Ec2SecurityGroup": {
-			"Type": "AWS::EC2::SecurityGroup",
-			"Properties": {
-				"GroupDescription": "Launch LRS EC2 security group"
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "78d6aaf8-3cd3-4fce-b750-3b144a829e28"
-				}
-			}
-		},
-		"RdsSecurityGroupIngress": {
-			"Type": "AWS::EC2::SecurityGroupIngress",
-			"Properties": {
-				"Description": "Allows access to Launch LRS RDS instance",
-				"GroupName": {
-					"Ref": "RdsSecurityGroup"
-				},
-				"SourceSecurityGroupName": {
-					"Ref": "Ec2SecurityGroup"
-				},
-				"IpProtocol": "tcp",
-				"FromPort": {
-					"Fn::GetAtt": [
-						"Rds",
-						"Endpoint.Port"
-					]
-				},
-				"ToPort": {
-					"Fn::GetAtt": [
-						"Rds",
-						"Endpoint.Port"
-					]
-				}
-			}
-		},
-		"route53": {
-			"Condition": "CreateRecordSet",
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"Parameters": {
-					"TargetDNSName": {
-						"Fn::GetAtt": [
-							"Environment",
-							"EndpointURL"
-						]
-					},
-					"TargetHostedZoneId": {
-						"Fn::FindInMap": [
-							"HostIdMap",
-							{
-								"Ref": "AWS::Region"
-							},
-							"LoadBalancer"
-						]
-					},
-					"HostedZoneId": {
-						"Ref": "HostedZoneId"
-					},
-					"DNSName": {
-						"Ref": "DNSName"
-					}
-				},
-				"TemplateURL": "https://launch-learning.s3.amazonaws.com/launch-lrs-route53.json"
-			},
-			"Metadata": {
-				"AWS::CloudFormation::Designer": {
-					"id": "4901ecd5-9260-4477-a203-7875ee53acb7"
-				}
-			}
-		}
-	},
-	"Outputs": {
-		"url": {
-			"Description": "The URL of your Launch LRS",
-			"Value": {
-				"Fn::Join": [
-					"",
-					[
-						"http://",
-						{
-							"Fn::GetAtt": [
-								"Environment",
-								"EndpointURL"
-							]
-						}
-					]
-				]
-			}
-		}
-	}
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Interface": {
+      "ParameterGroups": [
+        {
+          "Label": {
+            "default": "General AWS"
+          },
+          "Parameters": [
+            "DNSName",
+            "HostedZoneId",
+            "CertificateArn",
+            "SolutionStackName"
+          ]
+        },
+        {
+          "Label": {
+            "default": "Database Tier"
+          },
+          "Parameters": ["DatabaseMasterPassword"]
+        }
+      ],
+      "ParameterLabels": {
+        "HostedZoneId": {
+          "default": "Hosted Zone ID"
+        },
+        "DNSName": {
+          "default": "Domain name"
+        },
+        "CertificateArn": {
+          "default": "Certificate ARN"
+        },
+        "DatabaseMasterPassword": {
+          "default": "Database Password"
+        },
+        "SolutionStackName": {
+          "default": "Solution Stack Name"
+        }
+      }
+    },
+    "AWS::CloudFormation::Designer": {
+      "78d6aaf8-3cd3-4fce-b750-3b144a829e28": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": -30,
+          "y": 150
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "e61c1a29-a401-4f21-b0a9-d4c317714684": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 420,
+          "y": 150
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "d6c858d3-c070-49ff-9dde-91d66f20d9b6": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 320,
+          "y": 150
+        },
+        "z": 0,
+        "embeds": [],
+        "isassociatedwith": ["e61c1a29-a401-4f21-b0a9-d4c317714684"]
+      },
+      "c3e8371c-53bc-4ec1-84bd-e86c6a79f585": {
+        "size": {
+          "width": 230,
+          "height": 250
+        },
+        "position": {
+          "x": 60,
+          "y": 110
+        },
+        "z": 1,
+        "embeds": [
+          "f8323c94-ae8b-4c94-83b1-1af612bc4939",
+          "05b3c73f-fea1-4823-949a-174d69db4175",
+          "e9c30f5e-077a-4af8-a0a4-ac85276b8750"
+        ]
+      },
+      "f8323c94-ae8b-4c94-83b1-1af612bc4939": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 150
+        },
+        "z": 2,
+        "parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
+        "embeds": [],
+        "iscontainedinside": ["c3e8371c-53bc-4ec1-84bd-e86c6a79f585"]
+      },
+      "05b3c73f-fea1-4823-949a-174d69db4175": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 190,
+          "y": 270
+        },
+        "z": 2,
+        "parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
+        "embeds": [],
+        "iscontainedinside": ["c3e8371c-53bc-4ec1-84bd-e86c6a79f585"]
+      },
+      "e9c30f5e-077a-4af8-a0a4-ac85276b8750": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 270
+        },
+        "z": 2,
+        "parent": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585",
+        "embeds": [],
+        "isassociatedwith": ["f8323c94-ae8b-4c94-83b1-1af612bc4939"],
+        "iscontainedinside": ["c3e8371c-53bc-4ec1-84bd-e86c6a79f585"]
+      },
+      "4901ecd5-9260-4477-a203-7875ee53acb7": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 400
+        },
+        "z": 1,
+        "embeds": []
+      }
+    }
+  },
+  "Parameters": {
+    "HostedZoneId": {
+      "Description": "Select the Route 53 Hosted Zone ID for the domain name.",
+      "Type": "AWS::Route53::HostedZone::Id"
+    },
+    "DNSName": {
+      "AllowedPattern": "^$|(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
+      "Description": "The domain name for this Launch LRS server",
+      "Type": "String"
+    },
+    "CertificateArn": {
+      "AllowedPattern": "^(arn:aws:acm:)([a-z0-9/:-])*([a-z0-9])$",
+      "Description": "The AWS Certification Manager certificate ARN - certificate must be in the same region as this stack.",
+      "Type": "String"
+    },
+    "SolutionStackName": {
+      "Description": "The name of the latest Elastic Beanstalk 64bit Amazon Linux 2 running Corretto 11 solution stack. Check if the default solution stack below is the latest and replace if required. For the latest verion check the documentation: https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.javase",
+      "Type": "String",
+      "Default": "64bit Amazon Linux 2 v3.1.4 running Corretto 11"
+    },
+    "DatabaseMasterPassword": {
+      "AllowedPattern": "^([a-zA-Z0-9`~!#$%^&*()_+,\\\\-])*$",
+      "ConstraintDescription": "Must be letters (upper or lower), numbers, spaces, and these special characters `~!#$%^&*()_+,-",
+      "Description": "The RDS master password.",
+      "MaxLength": 41,
+      "MinLength": 8,
+      "NoEcho": true,
+      "Type": "String"
+    }
+  },
+  "Conditions": {
+    "CreateRecordSet": {
+      "Fn::Not": [
+        {
+          "Fn::Equals": [
+            {
+              "Ref": "HostedZoneId"
+            },
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "Mappings": {
+    "HostIdMap": {
+      "us-gov-east-1": {
+        "LoadBalancer": "Z166TLBEWOO7G0"
+      },
+      "us-gov-west-1": {
+        "LoadBalancer": "Z33AYJ8TM3BH4J"
+      },
+      "us-east-2": {
+        "LoadBalancer": "Z3AADJGX6KTTL2"
+      },
+      "us-east-1": {
+        "LoadBalancer": "Z35SXDOTRQ7X7K"
+      },
+      "us-west-1": {
+        "LoadBalancer": "Z368ELLRRE2KJ0"
+      },
+      "us-west-2": {
+        "LoadBalancer": "Z1H1FL5HABSF5"
+      },
+      "af-south-1": {
+        "LoadBalancer": "Z268VQBMOI5EKX"
+      },
+      "ap-east-1": {
+        "LoadBalancer": "Z3DQVH9N71FHZ0"
+      },
+      "ap-south-1": {
+        "LoadBalancer": "ZP97RAFLXTNZK"
+      },
+      "ap-northeast-3": {
+        "LoadBalancer": "Z5LXEXXYW11ES"
+      },
+      "ap-northeast-2": {
+        "LoadBalancer": "ZWKZPGTI48KDX"
+      },
+      "ap-southeast-1": {
+        "LoadBalancer": "Z1LMS91P8CMLE5"
+      },
+      "ap-southeast-2": {
+        "LoadBalancer": "Z1GM3OXH4ZPM65"
+      },
+      "ap-northeast-1": {
+        "LoadBalancer": "Z14GRHDCWA56QT"
+      },
+      "ca-central-1": {
+        "LoadBalancer": "ZQSVJUPU6J1EY"
+      },
+      "cn-north-1": {
+        "LoadBalancer": "Z1GDH35T77C1KE"
+      },
+      "cn-northwest-1": {
+        "LoadBalancer": "ZM7IZAIOVVDZF"
+      },
+      "eu-central-1": {
+        "LoadBalancer": "Z215JYRZR1TBD5"
+      },
+      "eu-west-1": {
+        "LoadBalancer": "Z32O12XQLNTSW2"
+      },
+      "eu-west-2": {
+        "LoadBalancer": "ZHURV8PSTC4K8"
+      },
+      "eu-west-3": {
+        "LoadBalancer": "Z3Q77PNBQS71R4"
+      },
+      "eu-north-1": {
+        "LoadBalancer": "Z23TAZ6LKFMNIO"
+      },
+      "me-south-1": {
+        "LoadBalancer": "ZS929ML54UICD"
+      },
+      "sa-east-1": {
+        "LoadBalancer": "Z2P70J7HTTTPLU"
+      }
+    }
+  },
+  "Resources": {
+    "LaunchLrsRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ec2.amazonaws.com"
+              },
+              "Action": ["sts:AssumeRole"]
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker",
+          "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier"
+        ]
+      }
+    },
+    "LaunchLrsProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "LaunchLrsRole"
+          }
+        ]
+      }
+    },
+    "Application": {
+      "Type": "AWS::ElasticBeanstalk::Application",
+      "Properties": {
+        "Description": "Launch LRS from Launch Learning"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "c3e8371c-53bc-4ec1-84bd-e86c6a79f585"
+        }
+      }
+    },
+    "ApplicationVersion": {
+      "Type": "AWS::ElasticBeanstalk::ApplicationVersion",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "Application"
+        },
+        "Description": "Initial version",
+        "SourceBundle": {
+          "S3Bucket": {
+            "Fn::Join": [
+              "-",
+              [
+                "launch-learning",
+                {
+                  "Ref": "AWS::Region"
+                }
+              ]
+            ]
+          },
+          "S3Key": "launch-lrs-1.0.20.jar"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "05b3c73f-fea1-4823-949a-174d69db4175"
+        }
+      }
+    },
+    "LoadBalancedConfigurationTemplate": {
+      "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "Application"
+        },
+        "Description": "Launch LRS load balanced configuration",
+        "OptionSettings": [
+          {
+            "Namespace": "aws:elasticbeanstalk:environment",
+            "OptionName": "EnvironmentType",
+            "Value": "LoadBalanced"
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:environment",
+            "OptionName": "LoadBalancerType",
+            "Value": "application"
+          },
+          {
+            "Namespace": "aws:elbv2:listener:443",
+            "OptionName": "Protocol",
+            "Value": "HTTPS"
+          },
+          {
+            "Namespace": "aws:elbv2:listener:443",
+            "OptionName": "SSLCertificateArns",
+            "Value": {
+              "Ref": "CertificateArn"
+            }
+          },
+          {
+            "Namespace": "aws:elbv2:listener:443",
+            "OptionName": "SSLPolicy",
+            "Value": "ELBSecurityPolicy-TLS-1-2-2017-01"
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:environment:process:default",
+            "OptionName": "HealthCheckPath",
+            "Value": "/actuator/health"
+          },
+          {
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "OptionName": "InstanceType",
+            "Value": "t2.micro"
+          },
+          {
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "OptionName": "IamInstanceProfile",
+            "Value": {
+              "Ref": "LaunchLrsProfile"
+            }
+          },
+          {
+            "Namespace": "aws:autoscaling:launchconfiguration",
+            "OptionName": "SecurityGroups",
+            "Value": {
+              "Ref": "Ec2SecurityGroup"
+            }
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:application:environment",
+            "OptionName": "SERVER_PORT",
+            "Value": "5000"
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:application:environment",
+            "OptionName": "SPRING_DATASOURCE_URL",
+            "Value": {
+              "Fn::Join": [
+                "",
+                [
+                  "jdbc:mysql://",
+                  {
+                    "Fn::GetAtt": ["Rds", "Endpoint.Address"]
+                  },
+                  ":",
+                  {
+                    "Fn::GetAtt": ["Rds", "Endpoint.Port"]
+                  },
+                  "/launch_lrs?zeroDateTimeBehavior=convertToNull"
+                ]
+              ]
+            }
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:application:environment",
+            "OptionName": "SPRING_DATASOURCE_USERNAME",
+            "Value": "lrs"
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:application:environment",
+            "OptionName": "SPRING_DATASOURCE_PASSWORD",
+            "Value": {
+              "Ref": "DatabaseMasterPassword"
+            }
+          }
+        ],
+        "SolutionStackName": {
+          "Ref": "SolutionStackName"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "f8323c94-ae8b-4c94-83b1-1af612bc4939"
+        }
+      }
+    },
+    "Environment": {
+      "Type": "AWS::ElasticBeanstalk::Environment",
+      "Properties": {
+        "ApplicationName": {
+          "Ref": "Application"
+        },
+        "Description": "Launch LRS Environment",
+        "TemplateName": {
+          "Ref": "LoadBalancedConfigurationTemplate"
+        },
+        "VersionLabel": {
+          "Ref": "ApplicationVersion"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "e9c30f5e-077a-4af8-a0a4-ac85276b8750"
+        }
+      }
+    },
+    "Rds": {
+      "Type": "AWS::RDS::DBInstance",
+      "Properties": {
+        "AllocatedStorage": "20",
+        "BackupRetentionPeriod": "30",
+        "DBInstanceClass": "db.t2.micro",
+        "DBName": "launch_lrs",
+        "Engine": "mysql",
+        "EngineVersion": "8.0.19",
+        "MasterUsername": "lrs",
+        "MasterUserPassword": {
+          "Ref": "DatabaseMasterPassword"
+        },
+        "PreferredBackupWindow": "05:00-06:00",
+        "StorageEncrypted": false,
+        "VPCSecurityGroups": [
+          {
+            "Fn::GetAtt": ["RdsSecurityGroup", "GroupId"]
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "d6c858d3-c070-49ff-9dde-91d66f20d9b6"
+        }
+      }
+    },
+    "RdsSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Launch LRS RDS security group"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "e61c1a29-a401-4f21-b0a9-d4c317714684"
+        }
+      }
+    },
+    "Ec2SecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Launch LRS EC2 security group"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "78d6aaf8-3cd3-4fce-b750-3b144a829e28"
+        }
+      }
+    },
+    "RdsSecurityGroupIngress": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "Description": "Allows access to Launch LRS RDS instance",
+        "GroupName": {
+          "Ref": "RdsSecurityGroup"
+        },
+        "SourceSecurityGroupName": {
+          "Ref": "Ec2SecurityGroup"
+        },
+        "IpProtocol": "tcp",
+        "FromPort": {
+          "Fn::GetAtt": ["Rds", "Endpoint.Port"]
+        },
+        "ToPort": {
+          "Fn::GetAtt": ["Rds", "Endpoint.Port"]
+        }
+      }
+    },
+    "route53": {
+      "Condition": "CreateRecordSet",
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "Parameters": {
+          "TargetDNSName": {
+            "Fn::GetAtt": ["Environment", "EndpointURL"]
+          },
+          "TargetHostedZoneId": {
+            "Fn::FindInMap": [
+              "HostIdMap",
+              {
+                "Ref": "AWS::Region"
+              },
+              "LoadBalancer"
+            ]
+          },
+          "HostedZoneId": {
+            "Ref": "HostedZoneId"
+          },
+          "DNSName": {
+            "Ref": "DNSName"
+          }
+        },
+        "TemplateURL": "https://launch-learning.s3.amazonaws.com/launch-lrs-route53.json"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "4901ecd5-9260-4477-a203-7875ee53acb7"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "url": {
+      "Description": "The URL of your Launch LRS",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Fn::GetAtt": ["Environment", "EndpointURL"]
+            }
+          ]
+        ]
+      }
+    }
+  }
 }
