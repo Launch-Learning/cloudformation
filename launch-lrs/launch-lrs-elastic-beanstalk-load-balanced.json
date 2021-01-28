@@ -332,7 +332,7 @@
               ]
             ]
           },
-          "S3Key": "launch-lrs-1.0.19.jar"
+          "S3Key": "launch-lrs-1.0.20.jar"
         }
       },
       "Metadata": {
